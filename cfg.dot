@@ -1,8 +1,4 @@
 digraph {
 	node [shape=box];
-	block_0_main [label="block_0_main\nparam a\n_t0 := call A\nprint _t0\n"];
-	block_1_A [label="block_1_A\n_t0 := call B\nprint _t0\nA := 1\nreturn A\n"];
-	block_2_B [label="block_2_B\nA := 5\n_t0 := call B\nB := _t0\n_t1 := A + B\nreturn _t1\n"];
-	block_3_A [label="block_3_A\nparam A\nreturn A\n"];
-	block_4_B [label="block_4_B\nB := 1\nreturn B\n"];
+	block_0_main [label="block_0_main\nparam a\n_t3 := 4 * 2\n_t2 := _t3 + 10\n_t4 := 2 * 6\n_t1 := _t2 - _t4\n_t7 := 4 - 1\n_t6 := _t7 * 2\n_t5 := _t6 / 2\n_t0 := _t1 + _t5\nprint _t0\n_t11 := ! True\n_t10 := _t11 and False\n_t9 := True == _t10\n_t13 := 10 > 1\n_t14 := 1 < 10\n_t12 := _t13 and _t14\n_t8 := _t9 || _t12\nprint _t8\n"];
 }

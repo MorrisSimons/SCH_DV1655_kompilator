@@ -1,42 +1,66 @@
 main:
 istore a
-invokevirtual A
+iconst 4
+iconst 2
+imul
+istore _t3
+iload _t3
+iconst 10
+iadd
+istore _t2
+iconst 2
+iconst 6
+imul
+istore _t4
+iload _t2
+iload _t4
+isub
+istore _t1
+iconst 4
+iconst 1
+isub
+istore _t7
+iload _t7
+iconst 2
+imul
+istore _t6
+iload _t6
+iconst 2
+idiv
+istore _t5
+iload _t1
+iload _t5
+iadd
 istore _t0
 iload _t0
+print
+iconst 1
+inot
+istore _t11
+iload _t11
+iconst 0
+iand
+istore _t10
+iconst 1
+iload _t10
+ieq
+istore _t9
+iconst 10
+iconst 1
+igt
+istore _t13
+iconst 1
+iconst 10
+ilt
+istore _t14
+iload _t13
+iload _t14
+iand
+istore _t12
+iload _t9
+iload _t12
+ior
+istore _t8
+iload _t8
 print
 stop
-
-A:
-invokevirtual B
-istore _t0
-iload _t0
-print
-iconst 1
-istore A
-iload A
-ireturn
-
-B:
-iconst 5
-istore A
-invokevirtual B
-istore _t0
-iload _t0
-istore B
-iload A
-iload B
-iadd
-istore _t1
-iload _t1
-ireturn
-
-A:
-istore A
-iload A
-ireturn
-
-B:
-iconst 1
-istore B
-iload B
-ireturn
