@@ -1,0 +1,42 @@
+main:
+istore a
+invokevirtual A
+istore _t0
+iload _t0
+print
+stop
+
+A:
+invokevirtual B
+istore _t0
+iload _t0
+print
+iconst 1
+istore A
+iload A
+ireturn
+
+B:
+iconst 5
+istore A
+invokevirtual B
+istore _t0
+iload _t0
+istore B
+iload A
+iload B
+iadd
+istore _t1
+iload _t1
+ireturn
+
+A:
+istore A
+iload A
+ireturn
+
+B:
+iconst 1
+istore B
+iload B
+ireturn

@@ -1,0 +1,18 @@
+digraph {
+	node [shape=box];
+	block_0_main [label="block_0_main\nparam a\n_t0 := call a2\nprint _t0\n"];
+	block_1_a1 [label="block_1_a1\nparam num\n"];
+	block_1_a1 -> block_2;
+	block_2 [label="block_2\n_t0 := num < 1\ncmp _t0, 1\n"];
+	block_2 -> block_3 [label="true"];
+	block_3 [label="block_3\nnum_aux := 1\n"];
+	block_3 -> block_5;
+	block_5 [label="block_5\nreturn This\n"];
+	block_2 -> block_4 [label="false"];
+	block_4 [label="block_4\n_t1 := call a2\n_t0 := num * _t1\nnum_aux := _t0\n"];
+	block_4 -> block_5;
+	block_6_a2 [label="block_6_a2\nreturn 0\n"];
+	block_7_a3 [label="block_7_a3\na := A\nreturn a\n"];
+	block_8_a4 [label="block_8_a4\n_t0 := call a3\na := _t0\n_t1 := call a2\ni := _t1\n_t2 := call a3\na := _t2\narg False\narg i\narg ia\narg This\n_t3 := call a5\ni := _t3\nreturn A\n"];
+	block_9_a5 [label="block_9_a5\nparam d\nparam c\nparam b\nparam a\nreturn 1\n"];
+}

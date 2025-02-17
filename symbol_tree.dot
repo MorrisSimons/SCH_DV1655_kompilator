@@ -1,0 +1,19 @@
+digraph {
+n0 [label="Symbol table: (Global)\nID:B;  RecordType: Class; Return type: Class\nID:A;  RecordType: Class; Return type: Class\nID:SemanticDuplicateIdentifiersSeparateScope;  RecordType: Class; Return type: Class\n"];
+n1 [label="Symbol table: (SemanticDuplicateIdentifiersSeparateScope)\nID:main;  RecordType: Method; Return type: Void\n"];
+n2 [label="Symbol table: (main)\nID:a;  RecordType: Parameter; Return type: StringList\n"];
+n1 -> n2
+n0 -> n1
+n3 [label="Symbol table: (A)\nID:B;  RecordType: Method; Return type: Int\nID:A;  RecordType: Method; Return type: Int\n"];
+n4 [label="Symbol table: (A)\nID:A;  RecordType: Variable; Return type: Int\n"];
+n3 -> n4
+n5 [label="Symbol table: (B)\nID:B;  RecordType: Variable; Return type: Int\n"];
+n3 -> n5
+n0 -> n3
+n6 [label="Symbol table: (B)\nID:B;  RecordType: Method; Return type: Int\nID:A;  RecordType: Method; Return type: Int\n"];
+n7 [label="Symbol table: (A)\nID:A;  RecordType: Parameter; Return type: Int\n"];
+n6 -> n7
+n8 [label="Symbol table: (B)\nID:B;  RecordType: Variable; Return type: Int\n"];
+n6 -> n8
+n0 -> n6
+}

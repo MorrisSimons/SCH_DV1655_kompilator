@@ -1,0 +1,8 @@
+digraph {
+	node [shape=box];
+	block_0_main [label="block_0_main\nparam a\n_t0 := call A\nprint _t0\n"];
+	block_1_A [label="block_1_A\n_t0 := call B\nprint _t0\nA := 1\nreturn A\n"];
+	block_2_B [label="block_2_B\nA := 5\n_t0 := call B\nB := _t0\n_t1 := A + B\nreturn _t1\n"];
+	block_3_A [label="block_3_A\nparam A\nreturn A\n"];
+	block_4_B [label="block_4_B\nB := 1\nreturn B\n"];
+}
