@@ -1,6 +1,6 @@
 digraph {
 n0 [label="Global:"];
-n1 [label="MainClass:E"];
+n1 [label="MainClass:B"];
 n2 [label="MethodDeclaration:main"];
 n3 [label="Void:"];
 n2 -> n3
@@ -13,85 +13,319 @@ n5 -> n7
 n4 -> n5
 n2 -> n4
 n8 [label="BlockContent:"];
-n9 [label="BlockContent:"];
-n10 [label="StatementList:"];
-n11 [label="PrintlnStatement:"];
-n12 [label="AddExpression:"];
-n13 [label="SubExpression:"];
-n14 [label="AddExpression:"];
-n15 [label="Expression:"];
-n16 [label="MulExpression:"];
-n17 [label="Int:4"];
-n16 -> n17
-n18 [label="Int:2"];
-n16 -> n18
-n15 -> n16
-n14 -> n15
-n19 [label="Int:10"];
-n14 -> n19
-n13 -> n14
-n20 [label="MulExpression:"];
-n21 [label="Int:2"];
-n20 -> n21
-n22 [label="Int:6"];
-n20 -> n22
-n13 -> n20
-n12 -> n13
-n23 [label="DivExpression:"];
-n24 [label="MulExpression:"];
-n25 [label="Expression:"];
-n26 [label="SubExpression:"];
-n27 [label="Int:4"];
-n26 -> n27
-n28 [label="Int:1"];
-n26 -> n28
-n25 -> n26
-n24 -> n25
-n29 [label="Int:2"];
-n24 -> n29
-n23 -> n24
-n30 [label="Int:2"];
-n23 -> n30
-n12 -> n23
-n11 -> n12
+n9 [label="PrintlnStatement:"];
+n10 [label="MethodCallExpression:"];
+n11 [label="NewObjectExpression:FacFib"];
 n10 -> n11
-n31 [label="PrintlnStatement:"];
-n32 [label="OrExpression:"];
-n33 [label="EqualExpression:"];
-n34 [label="TrueExpression:"];
-n33 -> n34
-n35 [label="Expression:"];
-n36 [label="AndExpression:"];
-n37 [label="NotExpression:"];
-n38 [label="TrueExpression:"];
-n37 -> n38
-n36 -> n37
-n39 [label="FalseExpression:"];
-n36 -> n39
-n35 -> n36
-n33 -> n35
-n32 -> n33
-n40 [label="AndExpression:"];
-n41 [label="GreaterThanExpression:"];
-n42 [label="Int:10"];
-n41 -> n42
-n43 [label="Int:1"];
-n41 -> n43
-n40 -> n41
-n44 [label="LessThanExpression:"];
-n45 [label="Int:1"];
-n44 -> n45
-n46 [label="Int:10"];
-n44 -> n46
-n40 -> n44
-n32 -> n40
-n31 -> n32
-n10 -> n31
+n12 [label="Identifier:Compute"];
+n10 -> n12
+n13 [label="ExpressionList:"];
+n14 [label="Int:5"];
+n13 -> n14
+n15 [label="Int:10"];
+n13 -> n15
+n10 -> n13
 n9 -> n10
 n8 -> n9
 n2 -> n8
 n1 -> n2
 n0 -> n1
-n47 [label="ClassDeclarationList:"];
-n0 -> n47
+n16 [label="ClassDeclarationList:"];
+n17 [label="ClassDeclaration:FacFib"];
+n18 [label="MethodDeclaration:Compute"];
+n19 [label="Int:"];
+n18 -> n19
+n20 [label="TypeIdentifierList:"];
+n21 [label="TypeIdentifier:"];
+n22 [label="Int:"];
+n21 -> n22
+n23 [label="Identifier:first"];
+n21 -> n23
+n20 -> n21
+n24 [label="TypeIdentifier:"];
+n25 [label="Int:"];
+n24 -> n25
+n26 [label="Identifier:second"];
+n24 -> n26
+n20 -> n24
+n18 -> n20
+n27 [label="BlockContent:"];
+n28 [label="VarDeclaration:"];
+n29 [label="Int:"];
+n28 -> n29
+n30 [label="Identifier:fac"];
+n28 -> n30
+n27 -> n28
+n31 [label="VarDeclaration:"];
+n32 [label="Int:"];
+n31 -> n32
+n33 [label="Identifier:fib"];
+n31 -> n33
+n27 -> n31
+n34 [label="VarDeclaration:"];
+n35 [label="Int:"];
+n34 -> n35
+n36 [label="Identifier:returnValue"];
+n34 -> n36
+n27 -> n34
+n37 [label="IfElseStatement:"];
+n38 [label="AndExpression:"];
+n39 [label="NotExpression:"];
+n40 [label="Expression:"];
+n41 [label="LessThanExpression:"];
+n42 [label="Identifier:first"];
+n41 -> n42
+n43 [label="Int:1"];
+n41 -> n43
+n40 -> n41
+n39 -> n40
+n38 -> n39
+n44 [label="NotExpression:"];
+n45 [label="Expression:"];
+n46 [label="LessThanExpression:"];
+n47 [label="Identifier:second"];
+n46 -> n47
+n48 [label="Int:1"];
+n46 -> n48
+n45 -> n46
+n44 -> n45
+n38 -> n44
+n37 -> n38
+n49 [label="BlockContent:"];
+n50 [label="StatementList:"];
+n51 [label="AssignStatement:"];
+n52 [label="Identifier:fac"];
+n51 -> n52
+n53 [label="MethodCallExpression:"];
+n54 [label="ThisExpression:"];
+n53 -> n54
+n55 [label="Identifier:ComputeFac"];
+n53 -> n55
+n56 [label="ExpressionList:"];
+n57 [label="Identifier:first"];
+n56 -> n57
+n53 -> n56
+n51 -> n53
+n50 -> n51
+n58 [label="PrintlnStatement:"];
+n59 [label="Identifier:fac"];
+n58 -> n59
+n50 -> n58
+n60 [label="AssignStatement:"];
+n61 [label="Identifier:fib"];
+n60 -> n61
+n62 [label="MethodCallExpression:"];
+n63 [label="ThisExpression:"];
+n62 -> n63
+n64 [label="Identifier:ComputeFib"];
+n62 -> n64
+n65 [label="ExpressionList:"];
+n66 [label="Identifier:second"];
+n65 -> n66
+n62 -> n65
+n60 -> n62
+n50 -> n60
+n67 [label="PrintlnStatement:"];
+n68 [label="Identifier:fib"];
+n67 -> n68
+n50 -> n67
+n69 [label="AssignStatement:"];
+n70 [label="Identifier:returnValue"];
+n69 -> n70
+n71 [label="Int:1"];
+n69 -> n71
+n50 -> n69
+n49 -> n50
+n37 -> n49
+n72 [label="BlockContent:"];
+n73 [label="StatementList:"];
+n74 [label="AssignStatement:"];
+n75 [label="Identifier:returnValue"];
+n74 -> n75
+n76 [label="Int:0"];
+n74 -> n76
+n73 -> n74
+n72 -> n73
+n37 -> n72
+n27 -> n37
+n77 [label="Return:"];
+n78 [label="Identifier:returnValue"];
+n77 -> n78
+n27 -> n77
+n18 -> n27
+n17 -> n18
+n79 [label="MethodDeclaration:ComputeFac"];
+n80 [label="Int:"];
+n79 -> n80
+n81 [label="TypeIdentifierList:"];
+n82 [label="TypeIdentifier:"];
+n83 [label="Int:"];
+n82 -> n83
+n84 [label="Identifier:num"];
+n82 -> n84
+n81 -> n82
+n79 -> n81
+n85 [label="BlockContent:"];
+n86 [label="VarDeclaration:"];
+n87 [label="Int:"];
+n86 -> n87
+n88 [label="Identifier:fac"];
+n86 -> n88
+n85 -> n86
+n89 [label="IfElseStatement:"];
+n90 [label="LessThanExpression:"];
+n91 [label="Identifier:num"];
+n90 -> n91
+n92 [label="Int:1"];
+n90 -> n92
+n89 -> n90
+n93 [label="AssignStatement:"];
+n94 [label="Identifier:fac"];
+n93 -> n94
+n95 [label="Int:1"];
+n93 -> n95
+n89 -> n93
+n96 [label="AssignStatement:"];
+n97 [label="Identifier:fac"];
+n96 -> n97
+n98 [label="MulExpression:"];
+n99 [label="Identifier:num"];
+n98 -> n99
+n100 [label="Expression:"];
+n101 [label="MethodCallExpression:"];
+n102 [label="ThisExpression:"];
+n101 -> n102
+n103 [label="Identifier:ComputeFac"];
+n101 -> n103
+n104 [label="ExpressionList:"];
+n105 [label="SubExpression:"];
+n106 [label="Identifier:num"];
+n105 -> n106
+n107 [label="Int:1"];
+n105 -> n107
+n104 -> n105
+n101 -> n104
+n100 -> n101
+n98 -> n100
+n96 -> n98
+n89 -> n96
+n85 -> n89
+n108 [label="Return:"];
+n109 [label="Identifier:fac"];
+n108 -> n109
+n85 -> n108
+n79 -> n85
+n17 -> n79
+n110 [label="MethodDeclaration:ComputeFib"];
+n111 [label="Int:"];
+n110 -> n111
+n112 [label="TypeIdentifierList:"];
+n113 [label="TypeIdentifier:"];
+n114 [label="Int:"];
+n113 -> n114
+n115 [label="Identifier:num"];
+n113 -> n115
+n112 -> n113
+n110 -> n112
+n116 [label="BlockContent:"];
+n117 [label="VarDeclaration:"];
+n118 [label="Int:"];
+n117 -> n118
+n119 [label="Identifier:f0"];
+n117 -> n119
+n116 -> n117
+n120 [label="VarDeclaration:"];
+n121 [label="Int:"];
+n120 -> n121
+n122 [label="Identifier:f1"];
+n120 -> n122
+n116 -> n120
+n123 [label="VarDeclaration:"];
+n124 [label="Int:"];
+n123 -> n124
+n125 [label="Identifier:fib"];
+n123 -> n125
+n116 -> n123
+n126 [label="VarDeclaration:"];
+n127 [label="Int:"];
+n126 -> n127
+n128 [label="Identifier:i"];
+n126 -> n128
+n116 -> n126
+n129 [label="AssignStatement:"];
+n130 [label="Identifier:f0"];
+n129 -> n130
+n131 [label="Int:0"];
+n129 -> n131
+n116 -> n129
+n132 [label="AssignStatement:"];
+n133 [label="Identifier:f1"];
+n132 -> n133
+n134 [label="Int:1"];
+n132 -> n134
+n116 -> n132
+n135 [label="AssignStatement:"];
+n136 [label="Identifier:fib"];
+n135 -> n136
+n137 [label="Identifier:num"];
+n135 -> n137
+n116 -> n135
+n138 [label="AssignStatement:"];
+n139 [label="Identifier:i"];
+n138 -> n139
+n140 [label="Int:1"];
+n138 -> n140
+n116 -> n138
+n141 [label="WhileStatement:"];
+n142 [label="LessThanExpression:"];
+n143 [label="Identifier:i"];
+n142 -> n143
+n144 [label="Identifier:num"];
+n142 -> n144
+n141 -> n142
+n145 [label="BlockContent:"];
+n146 [label="StatementList:"];
+n147 [label="AssignStatement:"];
+n148 [label="Identifier:fib"];
+n147 -> n148
+n149 [label="AddExpression:"];
+n150 [label="Identifier:f1"];
+n149 -> n150
+n151 [label="Identifier:f0"];
+n149 -> n151
+n147 -> n149
+n146 -> n147
+n152 [label="AssignStatement:"];
+n153 [label="Identifier:f0"];
+n152 -> n153
+n154 [label="Identifier:f1"];
+n152 -> n154
+n146 -> n152
+n155 [label="AssignStatement:"];
+n156 [label="Identifier:f1"];
+n155 -> n156
+n157 [label="Identifier:fib"];
+n155 -> n157
+n146 -> n155
+n158 [label="AssignStatement:"];
+n159 [label="Identifier:i"];
+n158 -> n159
+n160 [label="AddExpression:"];
+n161 [label="Identifier:i"];
+n160 -> n161
+n162 [label="Int:1"];
+n160 -> n162
+n158 -> n160
+n146 -> n158
+n145 -> n146
+n141 -> n145
+n116 -> n141
+n163 [label="Return:"];
+n164 [label="Identifier:fib"];
+n163 -> n164
+n116 -> n163
+n110 -> n116
+n17 -> n110
+n16 -> n17
+n0 -> n16
 }

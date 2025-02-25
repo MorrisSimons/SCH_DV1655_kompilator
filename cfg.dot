@@ -1,4 +1,0 @@
-digraph {
-	node [shape=box];
-	block_0_main [label="block_0_main\nparam a\n_t3 := 4 * 2\n_t2 := _t3 + 10\n_t4 := 2 * 6\n_t1 := _t2 - _t4\n_t7 := 4 - 1\n_t6 := _t7 * 2\n_t5 := _t6 / 2\n_t0 := _t1 + _t5\nprint _t0\n_t11 := ! True\n_t10 := _t11 and False\n_t9 := True == _t10\n_t13 := 10 > 1\n_t14 := 1 < 10\n_t12 := _t13 and _t14\n_t8 := _t9 || _t12\nprint _t8\n"];
-}

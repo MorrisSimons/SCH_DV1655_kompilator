@@ -100,7 +100,7 @@ private:
 public:
     // Constructor to initialize the interpreter and load bytecode
     Interpreter() {
-        std::ifstream file("output.bc");                        // Open the bytecode file
+        std::ifstream file("./output/output.bc");                        // Open the bytecode file
         std::string line;                                       // Line buffer
         int line_number = 0;                                    // Line counter
 

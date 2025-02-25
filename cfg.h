@@ -40,7 +40,6 @@ public:
 
     // Getter methods
     std::map<BBlock*, std::string> get_bblocks(); // Returns the map of basic blocks
-    std::vector<BBlock*> get_methods();           // Returns the list of method blocks
 
 private:
     int block_count;                           // Counter for naming blocks

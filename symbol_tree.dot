@@ -1,7 +1,15 @@
 digraph {
-n0 [label="Symbol table: (Global)\nID:E;  RecordType: Class; Return type: Class\n"];
-n1 [label="Symbol table: (E)\nID:main;  RecordType: Method; Return type: Void\n"];
+n0 [label="Symbol table: (Global)\nID:FacFib;  RecordType: Class; Return type: Class\nID:B;  RecordType: Class; Return type: Class\n"];
+n1 [label="Symbol table: (B)\nID:main;  RecordType: Method; Return type: Void\n"];
 n2 [label="Symbol table: (main)\nID:a;  RecordType: Parameter; Return type: StringList\n"];
 n1 -> n2
 n0 -> n1
+n3 [label="Symbol table: (FacFib)\nID:ComputeFib;  RecordType: Method; Return type: Int\nID:ComputeFac;  RecordType: Method; Return type: Int\nID:Compute;  RecordType: Method; Return type: Int\n"];
+n4 [label="Symbol table: (Compute)\nID:fib;  RecordType: Variable; Return type: Int\nID:fac;  RecordType: Variable; Return type: Int\nID:second;  RecordType: Parameter; Return type: Int\nID:returnValue;  RecordType: Variable; Return type: Int\nID:first;  RecordType: Parameter; Return type: Int\n"];
+n3 -> n4
+n5 [label="Symbol table: (ComputeFac)\nID:fac;  RecordType: Variable; Return type: Int\nID:num;  RecordType: Parameter; Return type: Int\n"];
+n3 -> n5
+n6 [label="Symbol table: (ComputeFib)\nID:fib;  RecordType: Variable; Return type: Int\nID:f1;  RecordType: Variable; Return type: Int\nID:i;  RecordType: Variable; Return type: Int\nID:f0;  RecordType: Variable; Return type: Int\nID:num;  RecordType: Parameter; Return type: Int\n"];
+n3 -> n6
+n0 -> n3
 }

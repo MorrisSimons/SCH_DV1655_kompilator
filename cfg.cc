@@ -47,17 +47,17 @@ void CFG::initHandlers() {
     handlers["MethodDeclaration"] = &CFG::handleMethodDeclaration;
     handlers["Return"] = &CFG::handleReturn;
     // Handle Expressions
-    handlers["NotExpression"] = &CFG::handleNotExpression;
-    handlers["Expression"] = &CFG::handleExpression;
     handlers["GreaterThanExpression"] = &CFG::handleBinaryExpression;
     handlers["LessThanExpression"] = &CFG::handleBinaryExpression;
     handlers["EqualExpression"] = &CFG::handleBinaryExpression;
+    handlers["NotExpression"] = &CFG::handleNotExpression;
     handlers["AddExpression"] = &CFG::handleBinaryExpression;
     handlers["SubExpression"] = &CFG::handleBinaryExpression;
     handlers["DivExpression"] = &CFG::handleBinaryExpression;
     handlers["MulExpression"] = &CFG::handleBinaryExpression;
     handlers["AndExpression"] = &CFG::handleBinaryExpression;
     handlers["OrExpression"] = &CFG::handleBinaryExpression;
+    handlers["Expression"] = &CFG::handleExpression;
     // Map statements to their handlers
     handlers["WhileStatement"] = &CFG::handleWhileStatement;
     handlers["IfElseStatement"] = &CFG::handleIfElseStatement;
@@ -106,6 +106,7 @@ std::string CFG::handleMethodCallExpression(Node* root) {
         // Get the method name
         Node* method_name = *it;
         f = method_name->value;
+        //std::cout << method_name->value << std::endl;
         it = std::next(it);
     }
 
@@ -117,8 +118,10 @@ std::string CFG::handleMethodCallExpression(Node* root) {
         for (auto arg_it = arguments->children.begin(); arg_it != arguments->children.end(); ++arg_it) {
             // Process each argument
             std::string argument_name = CFGTraversal(*arg_it);
+            //std::cout << "argument: "<<argument_name << std::endl;
             Argument* argument = new Argument(argument_name);
             // Add argument to instructions
+            //std::cout << "Methodcall argument: "<<argument->get_tac() << std::endl;
             active_block->instructions.push_back(argument);
             N++;
         }
@@ -128,6 +131,8 @@ std::string CFG::handleMethodCallExpression(Node* root) {
     MethodCall* method_call = new MethodCall(block_id, f, std::to_string(N));
     // Add method call to instructions
     active_block->instructions.push_back(method_call);
+
+    
     return block_id;
 }
 
@@ -166,12 +171,23 @@ std::string CFG::handleMethodDeclaration(Node* root) {
 
     if (active_block) {
         // Add the method block to basic blocks
+        std::cout << "Active Block ID: " << active_block->block_id << std::endl;
+        std::cout << "Instructions:" << std::endl;
+        for (auto& instruction : active_block->instructions) {
+            std::cout << instruction->get_tac() << std::endl;
+        }
         add_bblock(active_block);
+        // Print out the contents of the active block
         active_block = nullptr;
     }
 
     // Do not display true condition for method block
     method_block->displayTrueBranch = false;
+    std::cout << "Active Block ID: " << active_block->block_id << std::endl;
+    std::cout << "Instructions:" << std::endl;
+    for (auto& instruction : active_block->instructions) {
+        std::cout << instruction->get_tac() << std::endl;
+    }
     add_bblock(method_block);
     return "";
 }
@@ -243,6 +259,7 @@ std::string CFG::handleBinaryExpression(Node* root) {
         // Create binary expression instruction
         Expression* expression = new Expression(block_id, left_op, op, right_op);
         active_block->instructions.push_back(expression);
+        
         return block_id;
     }
     return "";
@@ -260,6 +277,7 @@ std::string CFG::handleWhileStatement(Node* root) {
         active_block->true_branch = condition;
     } else {
         active_block->true_branch = condition;
+        // Add the current block
         add_bblock(active_block);
         active_block = condition;
     }
@@ -273,6 +291,7 @@ std::string CFG::handleWhileStatement(Node* root) {
         std::string value = CFGTraversal(condition_expr);
         active_block->instructions.push_back(new Condition(value));
     }
+    // Add the compare block
     add_bblock(active_block);
 
     // Process the body of the while loop
@@ -284,11 +303,12 @@ std::string CFG::handleWhileStatement(Node* root) {
     }
     active_block->true_branch = condition;
     active_block->displayTrueBranch = false;
+    // Add the body block
     add_bblock(active_block);
 
     // Continue with the join block after the loop
     active_block = join;
-    add_bblock(join);
+    add_bblock(join); // Add the return block 
     return "";
 }
 
@@ -309,7 +329,7 @@ std::string CFG::handleIfElseStatement(Node* root) {
         active_block->true_branch = condition;
     } else {
         active_block->true_branch = condition;
-        add_bblock(active_block);
+        add_bblock(active_block); // Add the current block
         active_block = condition;
     }
 
@@ -348,7 +368,8 @@ std::string CFG::handleIfElseStatement(Node* root) {
     return "";
 }
 
-// Handle array length expressions
+
+//// Handle array length expressions????
 std::string CFG::handleArrayLength(Node* root) {
     // Generate a temporary variable for the result
     std::string block_id = "_t" + std::to_string(active_block->temp_counter++);
@@ -379,7 +400,7 @@ std::string CFG::handleAssignStatement(Node* root) {
     return "";
 }
 
-// Handle array assignment statements
+//// Handle array assignment statements????
 std::string CFG::handleArrayAssignStatement(Node* root) {
     if (root->children.size() >= 3) {
         // Get the array identifier, index, and value
@@ -471,11 +492,6 @@ void CFG::create_BBlock(BBlock* block, std::ofstream* stream) {
         *stream << "\t" << from << " -> " << to << label << ";\n";
         create_BBlock(block->false_branch, stream);
     }
-}
-
-// Get the list of method basic blocks
-std::vector<BBlock*> CFG::get_methods() {
-    return methods;
 }
 
 // Get the map of basic blocks

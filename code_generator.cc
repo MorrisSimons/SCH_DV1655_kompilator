@@ -12,10 +12,8 @@ CodeGenerator::CodeGenerator() = default;
 
 // Generate the bytecode from the Control Flow Graph (CFG)
 void CodeGenerator::generate(CFG* cfg) {
-    const auto& methods = cfg->get_methods();               // Retrieve methods from the CFG
     const auto& bblocks = cfg->get_bblocks();               // Retrieve basic blocks from the CFG
-    std::ofstream stream("output.bc");                      // Open output file for writing bytecode
-
+    std::ofstream stream("./output/output.bc");             // Open output file for writing bytecode
     // Iterate over each basic block and generate bytecode
     for (const auto& [block, label] : bblocks) {
         // Determine the block's name (method name or label)
@@ -28,7 +26,6 @@ void CodeGenerator::generate(CFG* cfg) {
             stream << "stop\n";                             // Insert 'stop' instruction at the end of 'main'
         }
     }
-
     stream.close();                                         // Close the output file
 }
 
